@@ -4,25 +4,20 @@
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         Title="MainWindow" Height="720" Width="1080" WindowStartupLocation="CenterScreen" WindowStyle="None"
         AllowsTransparency="True" Background="Transparent">
-
-    <Window.Resources>
-        <BooleanToVisibilityConverter x:Key="BoolToVes" />
-    </Window.Resources>
-    
     <Border Background="#eff2f7" CornerRadius="30" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
+            </Grid.ColumnDefinitions> 
+            
             <!--Left Menu-->
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-
+                
                 <!--Menu Icon-->
                 <Button Margin="20 28 0 35" Style="{StaticResource topButton}" Content="{fa:Icon bars}"/>
 
@@ -37,92 +32,35 @@
                                 </Ellipse.Fill>
                             </Ellipse>
                         </Border>
-
+                        
                         <!--Menu Titles-->
                         <TextBlock Text="Silvers Club" Foreground="White" FontSize="22" FontWeight="SemiBold"
                                    DockPanel.Dock="Top" TextAlignment="Center" Margin="5 25 0 10"/>
                         <TextBlock Text="Members, France" Foreground="#d0bfff" FontSize="14" FontWeight="SemiBold"
                                    DockPanel.Dock="Top" TextAlignment="Center" />
-
+                        
                         <!--Menu Seprator-->
                         <Separator Margin="25" DockPanel.Dock="Top" Height="0.8" Background="#7e5fdc"/>
-
+                        
                         <!--Menu Buttons-->
                         <StackPanel DockPanel.Dock="Top">
-                            <Button Style="{StaticResource menuButton}">
+                            <Button>
+                                <Button.Content>
+                                    <fa:IconBlock Icon="Info" Foreground="Chocolate"/>
+                                </Button.Content>
                                 <StackPanel Orientation="Horizontal">
-                                    <fa:IconBlock Icon="Home" Foreground="#d0c0ff" Height="16"  Width="22" Margin="20 2 20 0" VerticalAlignment="Center"/>
-                                    <TextBlock Text="Панель" Height="19"/>
-                                </StackPanel>
-                            </Button>
-
-                            <Button Style="{StaticResource menuButton}">
-                                <StackPanel Orientation="Horizontal">
-                                    <fa:IconBlock Icon="Calendar" Foreground="#d0c0ff" Height="16"  Width="22" Margin="20 2 20 0" VerticalAlignment="Center"/>
-                                    <TextBlock Text="События" Height="19"/>
-                                </StackPanel>
-                            </Button>
-
-                            <Button Style="{StaticResource menuButton}" Background="#7b5cd6" Foreground="White">
-                                <StackPanel Orientation="Horizontal">
-                                    <fa:IconBlock Icon="UserGroup" Foreground="#d0c0ff" Height="16"  Width="22" Margin="20 2 20 0" VerticalAlignment="Center"/>
-                                    <TextBlock Text="Пользователи" Height="19"/>
-                                </StackPanel>
-                            </Button>
-
-                            <Button Style="{StaticResource menuButton}">
-                                <StackPanel Orientation="Horizontal">
-                                    <fa:IconBlock Icon="Wallet" Foreground="#d0c0ff" Height="16"  Width="22" Margin="20 2 20 0" VerticalAlignment="Center"/>
-                                    <TextBlock Text="Кошелёк" Height="19"/>
-                                </StackPanel>
-                            </Button>
-
-                            <Button Style="{StaticResource menuButton}">
-                                <StackPanel Orientation="Horizontal">
-                                    <fa:IconBlock Icon="Message" Foreground="#d0c0ff" Height="16"  Width="22" Margin="20 2 20 0" VerticalAlignment="Center"/>
-                                    <TextBlock Text="Сообщения" Height="19"/>
+                                    <TextBlock Text="Dashboard"/>
                                 </StackPanel>
                             </Button>
                         </StackPanel>
 
-                        <Button Style="{StaticResource menuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 15 20">
-                            <StackPanel Orientation="Horizontal">
-                                <fa:IconBlock Icon="RightFromBracket" Foreground="#d0c0ff" Height="16"  Width="22" Margin="20 2 20 0" VerticalAlignment="Center"/>
-                                <TextBlock Text="Выйти" Height="19"/>
-                            </StackPanel>
-                        </Button>
                     </DockPanel>
                 </Border>
-
+                
             </Grid>
-
-            <!--Main Section-->
-            <Grid Grid.Column="1" Margin="30 20 20 20">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="auto"/>
-                </Grid.RowDefinitions>
-
-                <!--Seach Textbox-->
-                <Grid Width="300" HorizontalAlignment="Left">
-                    <TextBlock Margin="20 0" VerticalAlignment="Center" Foreground="#b0b9c6" IsHitTestVisible="False"
-                               Panel.ZIndex="1" Text="Поиск"
-                               Visibility="{Binding ElementName=txtSearch, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}"/>
-
-                    <TextBox x:Name="txtSearch" Style="{StaticResource textboxSearch}"/>
-
-                    <fa:IconBlock Icon="Search" Height="19"  Width="25" VerticalAlignment="Center"
-                                  Margin="0 9 15 0" Foreground="#b0b9c6" HorizontalAlignment="Right"/>
-                </Grid>
-
-
-            </Grid>
-
+            
+            
+            
         </Grid>
     </Border>
 </Window>
