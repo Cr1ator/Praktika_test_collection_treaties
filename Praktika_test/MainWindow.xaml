@@ -108,18 +108,6 @@
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
 
-                <!--Seach Textbox-->
-                <Grid Width="300" HorizontalAlignment="Left">
-                    <TextBlock Margin="20 0" VerticalAlignment="Center" Foreground="#b0b9c6" IsHitTestVisible="False"
-                               Panel.ZIndex="1" Text="Поиск"
-                               Visibility="{Binding ElementName=txtSearch, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}"/>
-
-                    <TextBox x:Name="txtSearch" Style="{StaticResource textboxSearch}"/>
-
-                    <fa:IconBlock Icon="Search" Height="19"  Width="25" VerticalAlignment="Center"
-                                  Margin="0 9 15 0" Foreground="#b0b9c6" HorizontalAlignment="Right"/>
-                </Grid>
-
                 <!--Top Buttons-->
                 <Button Style="{StaticResource topButton}" Margin="0 0 20 0" Background="#dcdcdc" HorizontalAlignment="Right">
                     <fa:IconBlock Icon="Gear" VerticalAlignment="Center" FontSize="16"/>
@@ -146,10 +134,55 @@
 
                 <!--Top Buttons-->
                 <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 10 0 0">
-                    <Button Content="Персонал работы" Style="{StaticResource tabButton}" BorderBrush="#784ff2"/>
+                    <Button Content="Пользователи" Style="{StaticResource tabButton}" BorderBrush="#784ff2"/>
                     <Button Content="Исполнители" Style="{StaticResource tabButton}" Width="114"/>
                     <Button Content="Архив" Style="{StaticResource tabButton}" Width="52"/>
                 </StackPanel>
+
+                <!--Counter Title-->
+                <TextBlock Text="68 пользователей" Grid.Row="4" FontSize="18" FontWeight="SemiBold"
+                           Foreground="#121518" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                
+                <TextBlock Text="Фильтер" Grid.Row="4" FontSize="13" FontWeight="SemiBold" Margin="0 0 215 0"
+                           Foreground="#121518" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+                <!--Filter Textbox-->
+                <Grid Width="200" HorizontalAlignment="Right" Grid.Row="4">
+                    <TextBlock Margin="15 0" VerticalAlignment="Center" Foreground="#b0b9c6" IsHitTestVisible="False"
+                               Panel.ZIndex="1" Text="Поиск пользователей"
+                               Visibility="{Binding ElementName=txtFilter, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}"/>
+
+                    <TextBox x:Name="txtFilter" Style="{StaticResource textboxFilter}"/>
+                </Grid>
+
+                <!--Members Datagrid-->
+                
+                <!--Pagination Section-->
+                <Border Grid.Row="6" HorizontalAlignment="Right" BorderBrush="#dee4ec" BorderThickness="1"
+                        CornerRadius="5" Padding="5" Background="White" Margin="0 10 10 10">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Style="{StaticResource pagingButton}">
+                            <fa:IconBlock Icon="CaretLeft" VerticalAlignment="Center" Width="14" Height="12"/>
+                        </Button>
+                        
+                        <Rectangle Width="1" Fill="#dee4ec" Margin="3 7"/>
+                        
+                        <Button Style="{StaticResource pagingButton}" Content="1"/>
+                        <Button Style="{StaticResource pagingButton}" Content="2" Background="#7950f2" Foreground="#ffffff"/>
+                        <Button Style="{StaticResource pagingButton}" Content="3"/>
+
+                        <TextBlock Text="..." Foreground="#6c7682" VerticalAlignment="Center" FontSize="15" Margin="10 0"/>
+
+                        <Button Style="{StaticResource pagingButton}" Content="7"/>
+                        <Button Style="{StaticResource pagingButton}" Content="8"/>
+                        <Button Style="{StaticResource pagingButton}" Content="9"/>
+
+                        <Rectangle Width="1" Fill="#dee4ec" Margin="3 7"/>
+                        <Button Style="{StaticResource pagingButton}">
+                            <fa:IconBlock Icon="CaretRight" VerticalAlignment="Center" Width="14" Height="12"/>
+                        </Button>
+                    </StackPanel>
+                </Border>
 
             </Grid>
 
