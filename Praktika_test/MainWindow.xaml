@@ -24,7 +24,7 @@
                 </Grid.RowDefinitions>
 
                 <!--Menu Icon-->
-                <Button Margin="20 28 0 35" Style="{StaticResource topButton}" Content="{fa:Icon bars}"/>
+                <Button FontSize="18" Margin="20 28 0 35" Style="{StaticResource topButton}" Content="{fa:Icon bars}"/>
 
                 <Border Grid.Row="1" Background="#623ed0" CornerRadius="0 50 0 30">
                     <DockPanel>
@@ -39,10 +39,10 @@
                         </Border>
 
                         <!--Menu Titles-->
-                        <TextBlock Text="Silvers Club" Foreground="White" FontSize="22" FontWeight="SemiBold"
+                        <TextBlock Text="Azmovl Club" Foreground="White" FontSize="22" FontWeight="SemiBold"
                                    DockPanel.Dock="Top" TextAlignment="Center" Margin="5 25 0 10"/>
-                        <TextBlock Text="Members, France" Foreground="#d0bfff" FontSize="14" FontWeight="SemiBold"
-                                   DockPanel.Dock="Top" TextAlignment="Center" />
+                        <TextBlock Foreground="#d0bfff" FontSize="14" FontWeight="SemiBold"
+                                   DockPanel.Dock="Top" TextAlignment="Center" ><Run Language="ru-ru" Text="Пользователи Беларуси"/></TextBlock>
 
                         <!--Menu Seprator-->
                         <Separator Margin="25" DockPanel.Dock="Top" Height="0.8" Background="#7e5fdc"/>
@@ -156,6 +156,56 @@
                 </Grid>
 
                 <!--Members Datagrid-->
+                <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" x:Name="membersDataGrid">
+                    <DataGrid.Columns>
+                        <DataGridCheckBoxColumn CanUserResize="False" Width="auto" ElementStyle="{StaticResource CheckBoxStyle1}">
+                            <DataGridCheckBoxColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <CheckBox Style="{DynamicResource CheckBoxStyle1}" />
+                                </DataTemplate>
+                            </DataGridCheckBoxColumn.HeaderTemplate>
+                        </DataGridCheckBoxColumn>
+
+                        <DataGridTextColumn Header="#" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding Number}"/>
+
+                        <DataGridTemplateColumn Header="Пользователь" IsReadOnly="True" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Border Width="25" Height="25" CornerRadius="50" Margin="0 0 10 0" Background="{Binding BGColor}">
+                                            <TextBlock Text="{Binding Character}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="0 0 0 1"/>
+                                        </Border>
+                                        <TextBlock Text="{Binding Name}" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTextColumn Header="Позиция" IsReadOnly="True" Width="*" Binding="{Binding Position}"/>
+                        <DataGridTextColumn Header="Почта" IsReadOnly="True" Width="*" Binding="{Binding Email}"/>
+                        <DataGridTextColumn Header="Телефон" IsReadOnly="True" Width="*" Binding="{Binding Phone}"/>
+
+                        <DataGridTemplateColumn Header="Операции" IsReadOnly="True" Width="auto">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Style="{StaticResource gridEditButton}">
+                                            <Button.Content>
+                                                <fa:IconBlock Icon="Pencil" Width="16" Height="16" VerticalAlignment="Center"/>
+                                            </Button.Content>
+                                        </Button>
+                                        <Button Style="{StaticResource gridRemovetButton}" Margin="5 0 0 0">
+                                            <Button.Content>
+                                                <fa:IconBlock Icon="TrashCan" Width="16" Height="16" VerticalAlignment="Center"/>
+                                            </Button.Content>
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                    </DataGrid.Columns>
+                </DataGrid>
                 
                 <!--Pagination Section-->
                 <Border Grid.Row="6" HorizontalAlignment="Right" BorderBrush="#dee4ec" BorderThickness="1"
@@ -181,6 +231,7 @@
                         <Button Style="{StaticResource pagingButton}">
                             <fa:IconBlock Icon="CaretRight" VerticalAlignment="Center" Width="14" Height="12"/>
                         </Button>
+
                     </StackPanel>
                 </Border>
 
