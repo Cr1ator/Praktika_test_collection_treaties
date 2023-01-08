@@ -6,7 +6,7 @@
         AllowsTransparency="True" Background="Transparent">
 
     <Window.Resources>
-        <BooleanToVisibilityConverter x:Key="BoolToVes" />
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
     </Window.Resources>
     
     <Border Background="#eff2f7" CornerRadius="30" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
